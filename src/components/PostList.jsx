@@ -7,7 +7,7 @@ import SortLinks from "./new/links";
 
 export async function PostList({ currentPage = 1 }) {
   const { rows: posts } =
-    await db.query(`SELECT posts.id, posts.title, posts.body, posts.created_at, users.name, 
+    await db.query(`SELECT posts.id, posts.title, posts.body, posts.user_id, posts.created_at, users.name, 
     COALESCE(SUM(votes.vote), 0) AS vote_total
      FROM posts
      JOIN users ON posts.user_id = users.id
@@ -34,7 +34,9 @@ export async function PostList({ currentPage = 1 }) {
               >
                 {post.title}
               </Link>
-              <p className="text-zinc-700">posted by {post.name}</p>
+              <Link href={`/user/${post.user_id}`} className="text-zinc-700">
+                posted by {post.name}
+              </Link>
             </div>
           </li>
         ))}

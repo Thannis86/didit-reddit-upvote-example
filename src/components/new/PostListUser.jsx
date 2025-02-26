@@ -5,30 +5,25 @@ import { db } from "@/db";
 import { POSTS_PER_PAGE } from "@/config";
 import SortLinks from "./links";
 
-export async function PostListVotes({ currentPage = 1, params }) {
-  const { rows: posts } =
-    await db.query(`SELECT posts.id, posts.title, posts.body, posts.user_id, posts.created_at, users.name, 
+export async function PostListUser({ currentPage = 1, params }) {
+  const pageID = await params;
+  console.log(pageID);
+  const { rows: posts } = await db.query(
+    `SELECT posts.id, posts.title, posts.body, posts.created_at, posts.user_id, users.name, 
     COALESCE(SUM(votes.vote), 0) AS vote_total
-     FROM posts
-     JOIN users ON posts.user_id = users.id
-     LEFT JOIN votes ON votes.post_id = posts.id
-     GROUP BY posts.id, users.name
-     LIMIT ${POSTS_PER_PAGE}
-     OFFSET ${POSTS_PER_PAGE * (currentPage - 1)}`);
-
-  const query = await params;
-  console.log(query);
-  const sortOrder = query.sort || "asc";
-
-  if (sortOrder === "asc") {
-    posts.sort((a, b) => a.vote_total - b.vote_total);
-  } else {
-    posts.sort((a, b) => b.vote_total - a.vote_total);
-  }
+FROM posts
+JOIN users ON posts.user_id = users.id
+LEFT JOIN votes ON votes.post_id = posts.id
+WHERE posts.user_id = $1
+GROUP BY posts.id, users.name
+ORDER BY vote_total DESC
+LIMIT ${POSTS_PER_PAGE}
+OFFSET ${POSTS_PER_PAGE * (currentPage - 1)};`,
+    [pageID]
+  );
 
   return (
     <>
-      <SortLinks />
       <ul className="max-w-screen-lg mx-auto p-4 mb-4">
         {posts.map((post) => (
           <li
@@ -50,7 +45,6 @@ export async function PostListVotes({ currentPage = 1, params }) {
           </li>
         ))}
       </ul>
-      <Pagination currentPage={currentPage} />
     </>
   );
 }
