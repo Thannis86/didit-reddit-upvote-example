@@ -69,8 +69,28 @@ To start with my stretch goals, I have completed the very first one of adding th
 
 In this push I'm completing the not logged in error page. I can see that based on the current error that occurs when you vote when not logged in, the Vote.jsx file creates an error. What I have done is create a new page and have the error redirect you to it.
 
+---
+
+26/02 3pm
+
+For this push, I have created post sorting routes, to sort by date and votes. I have also created new PostList componants for each page to properly separate them, along with a separate links page.
+
+---
+
 Fixes:
 
 - Schema fails due to comma extra comma in final table
 
 Stretch Goals:
+Fix page titles on post pages to match the post title
+Handle the error when you click to vote while not logged in to show a nice error message
+Sorting posts by date created and votes
+
+---
+
+Try to make it so I can’t vote more than once (Fix could be done in the SQL with the constraints (ideally), or in-app code to check the db before adding a new row to the votes table)
+Users can vote an infinite number of times on the same post. We’d like to prevent this happening. It should be enforced at the Schema level with the UNIQUE constraint but it isn’t working. We’d like you to try and fix this, either by correcting the schema (preferable) or if not by implementing the restriction in the application code when the user tries to upvote.
+
+This is already included in the base code
+
+---

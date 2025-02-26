@@ -30,3 +30,14 @@
   justify-self: center;
   font-size: xx-large;
 }
+
+.sortLinks {
+  display: flex;
+  margin: 10px;
+  flex-direction: row;
+}
+
+#sortLinks {
+  display: flex;
+  justify-content: center;
+}
