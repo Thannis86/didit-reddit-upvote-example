@@ -77,6 +77,14 @@ For this push, I have created post sorting routes, to sort by date and votes. I 
 
 ---
 
+26/02 7pm
+
+In this final push I have created a user page that can be found my clicking the user's name on a post, either on the post's page or on the any page where the username was previously mentioned. On this page you can view the user's posts, their profile picture and some basic info. I did start working on a form page to edit the profile, however due to time constraints I was unable to both complete it and figure out how to use gitAuth to hide it when you're not signed into the correct account.
+
+With that being said, I have finished the initial target and hit several stretch goals, so I am happy with how this has gone.
+
+---
+
 Fixes:
 
 - Schema fails due to comma extra comma in final table
@@ -94,3 +102,6 @@ Users can vote an infinite number of times on the same post. We’d like to prev
 This is already included in the base code
 
 ---
+
+Deployment Link:
+https://didit-reddit-upvote-example-roan-pi.vercel.app
