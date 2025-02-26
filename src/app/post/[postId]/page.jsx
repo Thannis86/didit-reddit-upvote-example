@@ -3,6 +3,26 @@ import { CommentList } from "@/components/CommentList";
 import { Vote } from "@/components/Vote";
 import { db } from "@/db";
 
+const data = await db.query(`SELECT * from posts`);
+console.log(data);
+
+// export const metadata = {
+//   title: "Page",
+//   description: "A social app like Reddit or Hacker News",
+// };
+
+export async function generateMetadata({ params }) {
+  const postId = params.postId;
+  const data = await db.query(`SELECT * from posts WHERE posts.id = $1`, [
+    postId,
+  ]);
+  const brokenData = data.rows[0].title;
+  return {
+    title: brokenData,
+    description: params.description,
+  };
+}
+
 export default async function SinglePostPage({ params }) {
   const postId = params.postId;
 

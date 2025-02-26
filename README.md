@@ -53,6 +53,20 @@ The project is a work in progress and is not yet complete.
 
 To start with this assignment, I updated the env file and setup the database. The first issue I'm having is that the final table for the database is failing due to a syntax error. After a quick glance I can see that it's due to an unneeded additional comma on the 7th lines just before the final bracket. The website itself is running locally, so my next step is to push and set up on Vercel to see what issues that pumps out.
 
+---
+
+26/02 11am
+
+Initial vercel build worked fine, so the initial assignment target appears to have been completed quick and easy. The only 'difficult' part was figuring out setting up nextauth, but I used the below linked video to help with that.
+
+https://www.youtube.com/watch?v=xHQQ5I7E_H8&t=204s
+
+To start with my stretch goals, I have completed the very first one of adding the post title to the page title on the posts page. This was pretty simple. Initially, I copied the template from the layout file to make sure it would adjust for each page. When I saw that it would, I tried to get the DB query out of a returned function, until I realised I had no way to specify the post I wanted without the params. I figured out I could add it to a function so that params could be properly added to filter to the current post.
+
+---
+
 Fixes:
 
 - Schema fails due to comma extra comma in final table
+
+Stretch Goals:
