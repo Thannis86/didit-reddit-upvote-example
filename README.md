@@ -46,3 +46,13 @@ The project is a work in progress and is not yet complete.
 - [ ] User following
 - [ ] User feed (posts from users you follow)
 - [ ] User flair
+
+---
+
+26/02 10am
+
+To start with this assignment, I updated the env file and setup the database. The first issue I'm having is that the final table for the database is failing due to a syntax error. After a quick glance I can see that it's due to an unneeded additional comma on the 7th lines just before the final bracket. The website itself is running locally, so my next step is to push and set up on Vercel to see what issues that pumps out.
+
+Fixes:
+
+- Schema fails due to comma extra comma in final table
