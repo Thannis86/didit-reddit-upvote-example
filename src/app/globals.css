@@ -24,3 +24,9 @@
     transform: rotate(360deg);
   }
 }
+
+#LikeSignInPage {
+  display: flex;
+  justify-self: center;
+  font-size: xx-large;
+}

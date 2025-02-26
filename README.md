@@ -65,6 +65,10 @@ To start with my stretch goals, I have completed the very first one of adding th
 
 ---
 
+26/02 2pm
+
+In this push I'm completing the not logged in error page. I can see that based on the current error that occurs when you vote when not logged in, the Vote.jsx file creates an error. What I have done is create a new page and have the error redirect you to it.
+
 Fixes:
 
 - Schema fails due to comma extra comma in final table
